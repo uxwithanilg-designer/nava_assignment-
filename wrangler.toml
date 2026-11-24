@@ -1,0 +1,9 @@
+# Cloudflare Workers (static assets) deployment of the GateView UI.
+# The Vite build in dist/ is served as static files; unknown paths return index.html
+# so React Router can render deep links like /gate/visits/TV-0412.
+name = "nava-gateview"
+compatibility_date = "2026-11-24"
+
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"

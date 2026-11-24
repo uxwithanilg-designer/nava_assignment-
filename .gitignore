@@ -5,3 +5,4 @@ test-results
 playwright-report
 .vite
 qa/diff/results
+.wrangler

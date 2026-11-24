@@ -20,10 +20,19 @@ npm run dev          # http://localhost:5173  ( / redirects to /gate )
 | `npm run dev` | Vite dev server on port 5173 |
 | `npm run build` | Type-check (`tsc -b`, strict) + production build to `dist/` |
 | `npm run preview` | Serve the production build |
+| `npm run deploy` | Build and deploy to Cloudflare (`wrangler deploy`) |
 | `npm run lint` | ESLint (flat config in `eslint.config.js`) |
 | `npm run format` | Prettier |
 | `npm run qa:install` | One-time: download Playwright's Chromium |
 | `npm run qa:visual` | Visual QA: screenshot every route and diff it against Figma |
+
+## Live site (Cloudflare)
+
+Deployed on Cloudflare Workers (static assets): **<https://nava-gateview.newsapp.workers.dev>**
+
+- `wrangler.toml` serves the Vite build in `dist/`. With `not_found_handling = "single-page-application"`, deep links like `/gate/visits/TV-0412` open directly.
+- To deploy again: sign in once with `npx wrangler login`, then run `npm run deploy` (it builds, then runs `wrangler deploy`).
+- The same visual QA runs against the live site: `BASE_URL=https://nava-gateview.newsapp.workers.dev npm run qa:visual`.
 
 ## Screens and routes
 
