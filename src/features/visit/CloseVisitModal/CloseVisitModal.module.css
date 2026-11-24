@@ -1,0 +1,37 @@
+/* Figma 68:4070: 12px top, 16px bottom, 24px sides, 8px between items. */
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 24px 16px;
+}
+
+.reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+/* Figma 68:4111: accent-subtle note, 16px info icon, Body/XS in text/link. */
+.info {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--bg-accent-subtle);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-link);
+}
+
+.info > span {
+  flex: 1 0 0;
+  min-width: 0;
+}

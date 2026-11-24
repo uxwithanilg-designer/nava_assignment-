@@ -1,0 +1,101 @@
+.panel {
+  gap: 16px;
+  padding: 20px 24px;
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.statusLabel {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  white-space: nowrap;
+}
+
+.auto { background: var(--bg-accent-subtle); color: var(--text-link); }
+.unclear { background: var(--status-review-bg); color: var(--status-review-text); }
+.confirmed { background: var(--status-observed-bg); color: var(--status-observed-text); }
+.notMatched { background: var(--status-missing-bg); color: var(--status-missing-text); }
+
+.text {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-secondary);
+}
+
+.candidates {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  list-style: none;
+}
+
+/* Candidate card: 1px subtle stroke; the selected truck gets a 2px accent stroke. */
+.candidate {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+}
+
+.candidateSelected {
+  border: 2px solid var(--action-accent);
+  background: var(--bg-accent-subtle);
+}
+
+.candidateId {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.candidateEntry {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.action {
+  flex: 1 1 0;
+  min-width: 0;
+}

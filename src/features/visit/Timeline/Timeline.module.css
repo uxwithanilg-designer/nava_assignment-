@@ -1,0 +1,11 @@
+/* Visit-page panels: 20px top/bottom, 24px sides, 16px between header and body. */
+.panel {
+  gap: 16px;
+  padding: 20px 24px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}

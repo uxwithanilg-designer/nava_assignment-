@@ -1,0 +1,29 @@
+.line {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.start {
+  align-items: flex-start;
+}
+
+.text {
+  min-width: 0;
+}
+
+.start .text {
+  flex: 1 1 0;
+}
+
+.line:not(.start) .text {
+  white-space: nowrap;
+}
+
+.tertiary { color: var(--text-tertiary); }
+.secondary { color: var(--text-secondary); }
+.observed { color: var(--status-observed-text); }

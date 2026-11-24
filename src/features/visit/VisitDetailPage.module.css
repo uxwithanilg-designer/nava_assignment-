@@ -1,0 +1,14 @@
+/* Timeline 736 : side 376 at 1440 (24px gap); fluid between 1280 and 1920. */
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 736fr) minmax(0, 376fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}

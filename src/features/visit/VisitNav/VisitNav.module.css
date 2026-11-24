@@ -1,0 +1,49 @@
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 36px;
+}
+
+/* Figma "Back": ghost button with no left padding (6 / 12 / 6 / 0). */
+.back {
+  padding-left: 0;
+}
+
+.back:hover {
+  background: none;
+  text-decoration: underline;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.position {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+/* Icon button · Outline, 36×36. */
+.prev {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background-color var(--motion-fast) ease;
+}
+
+.prev:hover {
+  background: var(--bg-subtle);
+}

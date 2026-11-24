@@ -1,0 +1,50 @@
+.panel {
+  gap: 12px;
+  padding: 20px 24px;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.name {
+  flex: 1 1 0;
+  min-width: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-primary);
+}
+
+.health {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-full);
+}
+
+.live { color: var(--text-secondary); }
+.live .dot { background: var(--cyan-400); }
+.attention { color: var(--status-late-text); }
+.attention .dot { background: var(--status-late); }

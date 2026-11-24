@@ -1,0 +1,68 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px 24px;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-subtle);
+}
+
+.summaryText {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  font-family: var(--font-sans);
+}
+
+.summaryTitle {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-primary);
+}
+
+.summaryMeta {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-secondary);
+}
+
+/* "Who should look at it?" + the three people: legend, then 20px, then the options. */
+.people {
+  display: contents;
+}
+
+.legend {
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-primary);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.due {
+  width: 100%;
+}

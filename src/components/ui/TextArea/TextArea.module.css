@@ -1,0 +1,46 @@
+.textArea {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.field {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+  background: var(--bg-surface);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-primary);
+  resize: none;
+  transition: border-color var(--motion-fast) ease;
+}
+
+.field:hover {
+  border-color: var(--border-strong);
+}
+
+.field:focus-visible {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 1px var(--border-focus);
+}
+
+.invalid,
+.invalid:hover {
+  border-color: var(--status-missing);
+}

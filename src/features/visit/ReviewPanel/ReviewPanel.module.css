@@ -1,0 +1,138 @@
+.panel {
+  gap: 16px;
+  padding: 20px 24px;
+}
+
+/* Status / Owner / Due rows share the panel's 16px rhythm. */
+.facts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.term {
+  flex-shrink: 0;
+  width: 90px;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-secondary);
+}
+
+.row dd {
+  display: flex;
+}
+
+.value {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.closure {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-subtle);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 19px;
+}
+
+.reason {
+  font-weight: 500;
+  color: var(--text-primary);
+  /*
+   * Figma fits "Reason: Confirmed: activity observed on review" on one 298px line; in Chrome it
+   * measures 298.1px and would wrap. 2px of slack into the padding keeps Figma's line breaks.
+   */
+  margin-inline-end: -2px;
+}
+
+.note {
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.action {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.divider {
+  height: 1px;
+  margin: 0;
+  border: 0;
+  background: var(--border-subtle);
+}
+
+.historyLabel {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  color: var(--text-tertiary);
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+}
+
+.entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* 6×12 frame with a 6px dot at the bottom (Figma "Dot" at y 6). */
+.dot {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: 6px;
+  border-radius: var(--radius-full);
+  background: var(--text-tertiary);
+}
+
+.time {
+  flex-shrink: 0;
+  width: 38px;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--text-tertiary);
+  font-feature-settings: 'tnum';
+}
+
+.entryText {
+  flex: 1 1 0;
+  min-width: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-secondary);
+}
