@@ -1,0 +1,80 @@
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--viewer-control);
+  color: var(--text-inverse);
+  transition: background-color var(--motion-fast) ease;
+}
+
+.button:hover {
+  background: var(--viewer-raised);
+}
+
+.play,
+.play:hover {
+  background: var(--action-accent);
+}
+
+.time {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-inverse);
+  font-feature-settings: 'tnum';
+  white-space: nowrap;
+}
+
+.range,
+.hint {
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-nav);
+  white-space: nowrap;
+}
+
+.hint {
+  color: var(--text-nav-muted);
+}
+
+.spacer {
+  flex: 1 0 0;
+  min-width: 1px;
+}
+
+.speed {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  background: var(--viewer-control);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  color: var(--text-nav);
+  white-space: nowrap;
+}
+
+.speed:hover {
+  background: var(--viewer-raised);
+}

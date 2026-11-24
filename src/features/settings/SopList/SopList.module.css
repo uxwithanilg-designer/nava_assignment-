@@ -1,0 +1,101 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  background: var(--bg-surface);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--bg-surface);
+  text-align: left;
+  transition: background-color var(--motion-fast) ease;
+}
+
+.item:hover {
+  background: var(--bg-subtle);
+}
+
+/* Selected: brand-subtle fill + 1.5px accent outline (the row is 59px tall instead of 56px, as in Figma). */
+.selected,
+.selected:hover {
+  background: var(--bg-brand-subtle);
+  border: 1.5px solid var(--action-accent);
+}
+
+.icon {
+  color: var(--text-tertiary);
+}
+
+.selected .icon {
+  color: var(--text-brand);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 1px;
+  white-space: nowrap;
+}
+
+.name {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-primary);
+}
+
+.selected .name {
+  color: var(--text-brand);
+}
+
+.meta,
+.status {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-secondary);
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--status-observed);
+}
+
+/* Figma: the "New SOP" ghost button has a 4px left padding. */
+.newSop.newSop {
+  padding-left: 4px;
+}

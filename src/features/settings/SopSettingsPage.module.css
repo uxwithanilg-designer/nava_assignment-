@@ -1,0 +1,41 @@
+/* Figma header frame 75:4838: text column fills, buttons 24px apart, vertically centred. */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 0;
+  min-width: 1px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 34px;
+  letter-spacing: -0.13px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.014px;
+  color: var(--text-secondary);
+}
+
+/* Figma "Columns" (75:4853): SOP list 300 : editor 812, 24px gap. */
+.columns {
+  display: grid;
+  grid-template-columns: 300fr 812fr;
+  gap: 24px;
+  align-items: start;
+}

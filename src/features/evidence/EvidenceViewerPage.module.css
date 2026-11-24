@@ -1,0 +1,24 @@
+/* Full-screen dark viewer: 60px bar + body (video column + 360px side panel) filling the viewport. */
+.viewer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--viewer-bg);
+}
+
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  flex: 1 0 auto;
+  min-height: 840px;
+}
+
+/* Figma "Video" (73:4618): 24px padding, 16px between frame, controls, scrubber and strip. */
+.video {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+  padding: 24px;
+}

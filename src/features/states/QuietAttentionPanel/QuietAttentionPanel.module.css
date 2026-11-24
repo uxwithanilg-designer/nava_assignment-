@@ -1,0 +1,28 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px 24px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  background: var(--bg-surface);
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.032px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.tabs {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  border-bottom: 1px solid var(--border-subtle);
+}

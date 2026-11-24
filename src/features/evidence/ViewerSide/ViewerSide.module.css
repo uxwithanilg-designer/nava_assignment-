@@ -1,0 +1,155 @@
+.side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  min-width: 0;
+  padding: 24px;
+  background: var(--viewer-panel);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  color: var(--text-nav-muted);
+  white-space: nowrap;
+}
+
+.aiSaw {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.014px;
+  color: var(--text-inverse);
+}
+
+.facts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin: 0;
+  padding: 14px;
+  border-radius: var(--radius-lg);
+  background: var(--viewer-raised);
+}
+
+.fact {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.factLabel {
+  flex-shrink: 0;
+  width: 70px;
+  color: var(--text-nav-muted);
+}
+
+.factValue {
+  margin: 0;
+  color: var(--text-inverse);
+  white-space: nowrap;
+}
+
+.warning {
+  color: var(--viewer-warning-text);
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.answer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  white-space: nowrap;
+  transition:
+    background-color var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease;
+}
+
+.spraying {
+  background: var(--action-accent);
+  color: var(--text-inverse);
+}
+
+.spraying:hover {
+  background: var(--blue-700);
+}
+
+.noSpraying {
+  border: 1px solid var(--border-default);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.noSpraying:hover {
+  background: var(--bg-subtle);
+}
+
+.unclear {
+  border: 1px solid var(--border-nav);
+  background: var(--viewer-raised);
+  color: var(--text-inverse);
+}
+
+.unclear:hover {
+  background: var(--viewer-control);
+}
+
+.unclear .answerIcon {
+  color: var(--text-nav);
+}
+
+/* The reviewer's current answer (Figma shows no chosen state; a 2px accent ring marks it). */
+.chosen {
+  box-shadow:
+    0 0 0 2px var(--viewer-panel),
+    0 0 0 4px var(--action-accent);
+}
+
+.help {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-nav);
+}
+
+/* Pinned to the bottom of the panel (Figma spacer between the help text and the note). */
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  margin-top: auto;
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--viewer-raised);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-nav);
+}

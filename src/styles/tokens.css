@@ -132,6 +132,14 @@
   --shadow-card: 0 6px 16px -4px rgba(10, 26, 46, 0.08);
   --shadow-float: 0 18px 44px -10px rgba(10, 26, 46, 0.18);
 
+  /* Evidence viewer (screen 11, dark): raw fills Figma uses on that frame only, no NV variable. */
+  --viewer-bg: #07142a;
+  --viewer-panel: #0c1f3d;
+  --viewer-raised: #122a4f;
+  --viewer-control: #1b2b45;
+  --viewer-warning-text: #ffc266;
+  --viewer-review-text: #c7b8ff;
+
   /* Dim layer behind drawer / modal (Figma: navy/950 @ 40%) */
   --overlay-dim: rgba(10, 26, 46, 0.4);
 

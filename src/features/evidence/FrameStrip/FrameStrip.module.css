@@ -1,0 +1,36 @@
+.strip {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+.frame {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-md);
+  opacity: 0.75;
+  transition: opacity var(--motion-fast) ease;
+}
+
+.frame:hover {
+  opacity: 1;
+}
+
+.selected {
+  opacity: 1;
+}
+
+/* Selected: 3px accent stroke drawn inside the photo (Figma inside stroke). */
+.selected::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--action-accent);
+  border-radius: var(--radius-md);
+  pointer-events: none;
+}
+
+.photo {
+  display: block;
+}

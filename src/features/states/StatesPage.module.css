@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 34px;
+  letter-spacing: -0.13px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.014px;
+  color: var(--text-secondary);
+}
+
+/* Figma "Examples row" (86:5197): 420 : 692 with a 24px gap at 1440. */
+.row {
+  display: grid;
+  grid-template-columns: 420fr 692fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.skeletonCards {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.skeletonCard {
+  flex: 1 1 0;
+}

@@ -33,4 +33,13 @@ export const router = createBrowserRouter([
   { path: '/screens', element: <ScreensPage /> },
   { path: '/components', element: <ComponentsPage /> },
   { path: '*', element: <Navigate to="/gate" replace /> },
-]);
+], {
+  // Opt in to the v7 behaviours now, so React Router logs no future-flag warnings.
+  future: {
+    v7_relativeSplatPath: true,
+    v7_fetcherPersist: true,
+    v7_normalizeFormMethod: true,
+    v7_partialHydration: true,
+    v7_skipActionErrorRevalidation: true,
+  },
+});

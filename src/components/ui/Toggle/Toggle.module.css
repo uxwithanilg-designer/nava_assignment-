@@ -1,0 +1,38 @@
+.toggle {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--border-default);
+  cursor: pointer;
+  transition: background-color var(--motion-fast) ease;
+}
+
+.on {
+  background: var(--action-primary);
+}
+
+.knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  transition: transform var(--motion-fast) ease;
+}
+
+.on .knob {
+  transform: translateX(16px);
+}
+
+.toggle:hover {
+  background: var(--border-strong);
+}
+
+.on:hover {
+  background: var(--bg-brand);
+}
