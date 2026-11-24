@@ -53,3 +53,19 @@
 .changed .chevron {
   color: var(--text-brand);
 }
+
+/*
+ * Inside a filter bar narrower than 1440 (1280–1439): tighter padding and gaps, and the small grey
+ * label is hidden (the button keeps "Label: value" as its accessible name and title), so the whole
+ * row stays on one line. 1440 and up is unchanged.
+ */
+@media (max-width: 1439px) {
+  :global([data-filter-bar]) .filter {
+    gap: 6px;
+    padding: 0 10px;
+  }
+
+  :global([data-filter-bar]) .label {
+    display: none;
+  }
+}

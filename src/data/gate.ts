@@ -12,6 +12,7 @@
  * from the same hour buckets so the 03 layout can be shown for it (only 07:00 is checked against Figma).
  */
 import type { EvidenceImageKey } from '@/data/evidenceImages';
+import { nothingNeedsYouExample } from '@/data/states';
 import type {
   CoverageInput,
   Direction,
@@ -39,6 +40,11 @@ export interface GateResult {
   aiStatus: { tone: 'validating' | 'validated'; text: string };
   /** Camera note at the bottom of the gate card. */
   note: { tone: 'warning' | 'clear'; text: string; action?: string };
+  /**
+   * Figma's bar segment widths (px, in the order observed · late · not observed · not judged) for the
+   * frames checked against Figma; other views size the bars by count.
+   */
+  barWidths?: Partial<Record<GateCheckKey, readonly number[]>>;
 }
 
 export interface GateVisitRow {
@@ -66,10 +72,15 @@ export interface AttentionItem {
   title: string;
   status: StepResult;
   review: ReviewStatusKind;
+  /** Owner shown on "Assigned" items. */
+  reviewName?: string;
+  reviewInitials?: string;
   image: EvidenceImageKey;
   photoTime: string;
   linked?: boolean;
 }
+
+export type AttentionTab = 'noOwner' | 'assigned' | 'closed';
 
 export interface CountKpi {
   badge?: string;
@@ -79,6 +90,8 @@ export interface CountKpi {
 export interface GateDashboardView {
   /** Selected hour ("07") or undefined for the whole day. */
   hour?: string;
+  /** Figma's KPI coverage-bar widths (px) for frame 03; other views size the bars by count. */
+  kpiBarWidths?: Partial<Record<GateCheckKey, readonly number[]>>;
   subtitleRange: string;
   filters: { date: string; dateChanged: boolean; useCase: string };
   inward: CountKpi;
@@ -90,6 +103,13 @@ export interface GateDashboardView {
     tabs: { noOwner: number; assigned: number; closed: number };
     items: AttentionItem[];
     footer: string;
+    /**
+     * Hour views other than 07:00: the items of each tab. The panel opens the first tab that has items
+     * and shows the "Nothing needs you" state for an empty tab, so it is never an empty panel.
+     * The Figma frames (02, 03) have one list only and leave this out.
+     */
+    lists?: Record<AttentionTab, AttentionItem[]>;
+    empty?: { title: string; description: string; action: string };
   };
   visits: {
     tabs: { all: number; needsPerson: number; closed: number; noProblems: number };
@@ -189,7 +209,13 @@ export function stackCoverage(s: OutcomeStack): CoverageInput {
 
 export function sumStacks(stacks: OutcomeStack[]): OutcomeStack {
   return stacks.reduce(
-    (a, s) => stack(a.observed + s.observed, a.late + s.late, a.notObserved + s.notObserved, a.needsReview + s.needsReview),
+    (a, s) =>
+      stack(
+        a.observed + s.observed,
+        a.late + s.late,
+        a.notObserved + s.notObserved,
+        a.needsReview + s.needsReview,
+      ),
     stack(0, 0, 0, 0),
   );
 }
@@ -218,6 +244,12 @@ const dayGates: GateResult[] = [
       entryDisinfection: stack(15, 1, 1, 13),
       outwardInspection: stack(23, 0, 1, 2),
     },
+    // 57:670 Main gate bars (177px track).
+    barWidths: {
+      inwardInspection: [153, 12, 8],
+      entryDisinfection: [88, 6, 6, 72],
+      outwardInspection: [157, 7, 10],
+    },
     aiStatus: { tone: 'validating', text: MAIN_AI },
     note: {
       tone: 'warning',
@@ -237,6 +269,12 @@ const dayGates: GateResult[] = [
       entryDisinfection: stack(16, 1, 0, 1),
       outwardInspection: stack(13, 0, 1, 1),
     },
+    // 57:670 Feed gate bars (177px track).
+    barWidths: {
+      inwardInspection: [157, 10, 6],
+      entryDisinfection: [157, 10, 6],
+      outwardInspection: [153, 12, 8],
+    },
     aiStatus: { tone: 'validated', text: FEED_AI },
     note: { tone: 'clear', text: FEED_NOTE },
   },
@@ -253,6 +291,8 @@ const hour07Gates: GateResult[] = [
       entryDisinfection: stack(4, 0, 0, 2),
       outwardInspection: stack(2, 0, 0, 0),
     },
+    // 70:3605 Main gate bars; outward is one full green segment.
+    barWidths: { inwardInspection: [118, 30, 26], entryDisinfection: [119, 56] },
     note: {
       tone: 'warning',
       text: 'Mist on the spray-arch camera this hour. 2 of 6 spray checks could not be judged.',
@@ -268,6 +308,7 @@ const hour07Gates: GateResult[] = [
       entryDisinfection: stack(3, 0, 0, 0),
       outwardInspection: stack(1, 0, 0, 0),
     },
+    barWidths: undefined,
   },
 ];
 
@@ -553,6 +594,12 @@ const HOUR_GATES_DESCRIPTION = 'Fewer than 10 visits per gate in this hour, so w
 
 const hour07View: GateDashboardView = {
   hour: '07',
+  // 81:5413: the cards keep the KPI master's bar widths, clipped by the 144px track.
+  kpiBarWidths: {
+    inwardInspection: [132.72, 9.48, 9.48],
+    outwardInspection: [132.72],
+    entryDisinfection: [132.72, 9.48],
+  },
   subtitleRange: '07:00–08:00',
   filters: { date: 'Today, 07:00–08:00', dateChanged: true, useCase: 'All' },
   inward: { badge: 'Peak', footnote: 'Busiest hour of the day' },
@@ -574,6 +621,48 @@ const hour07View: GateDashboardView = {
   },
 };
 
+/** "Updated 14:28": ages in the needs-attention list count from this time. */
+const DASHBOARD_TIME = '14:28';
+const toMinutes = (time: string) => {
+  const [h, m] = time.split(':').map(Number);
+  return h * 60 + m;
+};
+const ageSince = (time: string) => `${Math.floor((toMinutes(DASHBOARD_TIME) - toMinutes(time)) / 60)} h`;
+
+/**
+ * What happened, for visits that need a person but are not in a Figma needs-attention list
+ * (hour views other than 07:00). Wording follows the visit pages and the SOP rules ("After entry = Late").
+ */
+const ATTENTION_TITLES: Record<string, string> = {
+  'TV-0427': 'Disinfection seen after entry',
+  'TV-0435': 'Disinfection not clearly seen before entry',
+  'TV-0438': 'The inspection may belong to another truck',
+};
+
+/** Needs-attention item for a visit row: the Figma item when there is one, else built from the row. */
+function attentionFor(r: GateVisitRow): AttentionItem | undefined {
+  if (r.review === 'None') return undefined;
+  const known = dayAttention.find((a) => a.id === r.id);
+  if (known) return known;
+  const title = ATTENTION_TITLES[r.id];
+  if (!title || !r.image) return undefined;
+  const flagged = (result: StepResult) => result !== 'Observed' && result !== 'Not required';
+  const step = flagged(r.inspection.result) ? r.inspection : r.disinfection;
+  return {
+    id: r.id,
+    meta: `${r.direction} · ${r.gate}`,
+    age: ageSince(r.time),
+    title,
+    status: step.result,
+    review: r.review,
+    reviewName: r.reviewName,
+    reviewInitials: r.reviewInitials,
+    image: r.image,
+    photoTime: step.time && step.time !== '—' ? step.time : r.time,
+    linked: r.linked,
+  };
+}
+
 /** Split an hour's counts between the two gates in the day's proportion (mock data for hours other than 07). */
 function splitStack(s: OutcomeStack, share: number): [OutcomeStack, OutcomeStack] {
   const main = stack(
@@ -582,7 +671,15 @@ function splitStack(s: OutcomeStack, share: number): [OutcomeStack, OutcomeStack
     Math.round(s.notObserved * share),
     Math.round(s.needsReview * share),
   );
-  return [main, stack(s.observed - main.observed, s.late - main.late, s.notObserved - main.notObserved, s.needsReview - main.needsReview)];
+  return [
+    main,
+    stack(
+      s.observed - main.observed,
+      s.late - main.late,
+      s.notObserved - main.notObserved,
+      s.needsReview - main.needsReview,
+    ),
+  ];
 }
 
 function buildHourView(hour: string): GateDashboardView {
@@ -600,6 +697,7 @@ function buildHourView(hour: string): GateDashboardView {
       inward: stackTotal(mainIn),
       outward: stackTotal(mainOut),
       checks: { inwardInspection: mainIn, entryDisinfection: mainDis, outwardInspection: mainOut },
+      barWidths: undefined,
       note: {
         ...dayGates[0].note,
         text: `Spray-arch camera has a partial view this hour. ${mainDis.needsReview} of ${stackTotal(mainDis)} spray checks could not be judged.`,
@@ -610,29 +708,43 @@ function buildHourView(hour: string): GateDashboardView {
       inward: stackTotal(feedIn),
       outward: stackTotal(feedOut),
       checks: { inwardInspection: feedIn, entryDisinfection: feedDis, outwardInspection: feedOut },
+      barWidths: undefined,
     },
   ];
   const inHour = (time: string) => time.startsWith(`${hour}:`);
   const rows = dayRows.filter((r) => inHour(r.time));
-  const items = dayAttention.filter((a) => inHour(a.photoTime));
+  const items = rows.map(attentionFor).filter((a): a is AttentionItem => Boolean(a));
+  const lists: Record<AttentionTab, AttentionItem[]> = {
+    noOwner: items.filter((a) => a.review === 'No owner'),
+    assigned: items.filter((a) => a.review === 'Assigned'),
+    closed: items.filter((a) => a.review === 'Closed'),
+  };
   const all = stackTotal(insp.inward) + stackTotal(insp.outward);
   const flagged = (s: OutcomeStack) => s.late + s.notObserved + s.needsReview;
   const needsPerson = Math.min(flagged(insp.inward) + flagged(insp.outward) + flagged(dis.inward), all);
-  const noOwner = Math.min(rows.filter((r) => r.review === 'No owner').length, needsPerson);
-  const closed = rows.filter((r) => r.review === 'Closed').length;
+  // The review card and the needs-attention tabs count the same visits.
+  const noOwner = lists.noOwner.length;
+  const owned = lists.assigned.length;
+  const closed = lists.closed.length;
   return {
     hour,
     subtitleRange: range,
     filters: { date: `Today, ${range}`, dateChanged: true, useCase: 'All' },
     inward: {},
     outward: {},
-    review: { open: needsPerson, noOwner, owned: needsPerson - noOwner },
+    review: { open: noOwner + owned, noOwner, owned },
     gates,
     gatesDescription: HOUR_GATES_DESCRIPTION,
     attention: {
-      tabs: { noOwner, assigned: needsPerson - noOwner, closed },
+      tabs: { noOwner, assigned: owned, closed },
       items,
-      footer: `See all ${needsPerson} in this hour`,
+      footer: `See all ${noOwner + owned} in this hour`,
+      lists,
+      empty: {
+        title: nothingNeedsYouExample.title ?? '',
+        description: `Nothing from ${range} is waiting for a person. New problems will show here.`,
+        action: nothingNeedsYouExample.actionLabel ?? '',
+      },
     },
     visits: {
       tabs: { all, needsPerson, closed, noProblems: all - needsPerson - closed },

@@ -4,3 +4,10 @@
   gap: 16px;
   align-items: start;
 }
+
+/* Narrower than 1440 descriptions can take an extra line: keep the four tiles the same height. */
+@media (max-width: 1439px) {
+  .modules {
+    align-items: stretch;
+  }
+}

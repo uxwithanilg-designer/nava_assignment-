@@ -16,3 +16,8 @@
 .late { background: var(--chart-late); }
 .missing { background: var(--chart-missing); }
 .review { background: var(--chart-review); }
+
+/* Pinned Figma width: never grows or shrinks; the track clips the overflow. */
+.track > .fixed {
+  flex: 0 0 auto;
+}

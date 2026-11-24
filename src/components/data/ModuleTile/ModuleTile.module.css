@@ -178,3 +178,10 @@
   flex: 1 0 0;
   min-width: 1px;
 }
+
+/* When a row stretches the tiles to the same height (below 1440), the rule and link sit at the bottom. */
+@media (max-width: 1439px) {
+  .rule {
+    margin-top: auto;
+  }
+}

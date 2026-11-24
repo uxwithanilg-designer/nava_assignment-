@@ -88,9 +88,11 @@ export function ResultsByHour({ view, chart }: ResultsByHourProps) {
           {disinfection ? `, ${footer.visits} visits` : `, with ${footer.visits} visits`}
         </p>
         <span className={styles.spacer} />
-        <span className={styles.dot} aria-hidden="true" />
-        <span className={styles.violetNote}>
-          {disinfection ? gateCopy.hourChart.violetDisinfection : gateCopy.hourChart.violetInspection}
+        <span className={styles.violet}>
+          <span className={styles.dot} aria-hidden="true" />
+          <span className={styles.violetNote}>
+            {disinfection ? gateCopy.hourChart.violetDisinfection : gateCopy.hourChart.violetInspection}
+          </span>
         </span>
       </div>
     </Panel>

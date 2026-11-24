@@ -3,8 +3,11 @@ import styles from './CoverageBar.module.css';
 
 /**
  * CoverageBar: thin segmented fraction bar (Figma "Fraction bar": 8px high, radius 4, 2px gap, chart/track).
- * Segments share the width left after the 2px gaps in proportion to their counts (as Figma sizes them);
+ * By default the segments share the width left after the 2px gaps in proportion to their counts;
  * a `total` larger than the sum leaves the rest of the track empty.
+ * `widths` pins each drawn segment to the pixel width a Figma frame uses: Figma sizes these bars by
+ * hand, so frames checked against Figma (02, 03) pass them from the mock data. The track clips
+ * anything past its width, exactly like Figma's clipped frame, and shows grey where segments end early.
  * Violet ("not judged") is its own segment: never folded into "not observed".
  */
 export interface CoverageSegments {
@@ -17,6 +20,8 @@ export interface CoverageSegments {
 export interface CoverageBarProps extends CoverageSegments {
   /** Base for the proportions. Defaults to the sum of the segments. */
   total?: number;
+  /** Fixed px widths for the drawn (non-zero) segments, in order: observed · late · not observed · not judged. */
+  widths?: readonly number[];
   height?: number;
   className?: string;
 }
@@ -27,6 +32,7 @@ export function CoverageBar({
   notObserved = 0,
   notJudged = 0,
   total,
+  widths,
   height = 8,
   className,
 }: CoverageBarProps) {
@@ -45,10 +51,14 @@ export function CoverageBar({
       role="img"
       aria-label={`${observed} observed, ${late} late, ${notObserved} not observed, ${notJudged} not judged`}
     >
-      {parts.map((p) => (
-        <span key={p.key} className={p.cls} style={{ flexGrow: p.n }} />
-      ))}
-      {rest > 0 && <span style={{ flexGrow: rest }} />}
+      {parts.map((p, i) =>
+        widths ? (
+          <span key={p.key} className={clsx(p.cls, styles.fixed)} style={{ width: widths[i] ?? 0 }} />
+        ) : (
+          <span key={p.key} className={p.cls} style={{ flexGrow: p.n }} />
+        ),
+      )}
+      {!widths && rest > 0 && <span style={{ flexGrow: rest }} />}
     </div>
   );
 }

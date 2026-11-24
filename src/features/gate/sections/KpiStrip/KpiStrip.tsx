@@ -62,18 +62,21 @@ export function KpiStrip({ view }: KpiStripProps) {
           label="Inward inspection coverage"
           icon="vest"
           stack={check('inwardInspection')}
+          barWidths={view.kpiBarWidths?.inwardInspection}
           countUnit="inspected before entry"
         />
         <CoverageKpi
           label="Outward inspection coverage"
           icon="vest"
           stack={check('outwardInspection')}
+          barWidths={view.kpiBarWidths?.outwardInspection}
           countUnit="inspected before exit"
         />
         <CoverageKpi
           label="Entry-disinfection coverage"
           icon="droplets"
           stack={check('entryDisinfection')}
+          barWidths={view.kpiBarWidths?.entryDisinfection}
           countUnit="sprayed before entry"
         />
       </KpiGroup>
@@ -99,12 +102,22 @@ interface CoverageKpiProps {
   stack: OutcomeStack;
   /** Unit after the count when the % is hidden. */
   countUnit: string;
+  /** Figma's pinned bar widths (03). With them the bar also draws the not-judged segment, as Figma does. */
+  barWidths?: readonly number[];
 }
 
 /** One coverage card. The bar shows the judged visits: observed · late · not observed. */
-function CoverageKpi({ label, icon, stack, countUnit }: CoverageKpiProps) {
+function CoverageKpi({ label, icon, stack, countUnit, barWidths }: CoverageKpiProps) {
   const display = getCoverageDisplay(stackCoverage(stack));
-  const bar = { observed: stack.observed, late: stack.late, notObserved: stack.notObserved };
+  const bar = barWidths
+    ? {
+        observed: stack.observed,
+        late: stack.late,
+        notObserved: stack.notObserved,
+        notJudged: stack.needsReview,
+        widths: barWidths,
+      }
+    : { observed: stack.observed, late: stack.late, notObserved: stack.notObserved };
   if (display.kind === 'hidden') {
     return (
       <KpiCard

@@ -5,9 +5,9 @@ Viewport 1440×900 · deviceScaleFactor 1 · pixelmatch threshold 0.1 · target 
 | Screen | Name | Mismatch % | App height | Figma height | Result |
 |---|---|---|---|---|---|
 | 01 | Management overview | 1.19 | 1697 | 1697 | pass |
-| 02 | GV-01 — Gate dashboard | 1.63 | 2275 | 2275 | pass |
-| 02b | GV-01 — Disinfection by hour | 1.64 | 2275 | 2275 | pass |
-| 03 | GV-01 — Drilled down to one hour | 1.59 | 2328 | 2328 | pass |
+| 02 | GV-01 — Gate dashboard | 1.61 | 2275 | 2275 | pass |
+| 02b | GV-01 — Disinfection by hour | 1.62 | 2275 | 2275 | pass |
+| 03 | GV-01 — Drilled down to one hour | 1.58 | 2328 | 2328 | pass |
 | 04 | SH-03 — Visit needs review | 1.43 | 1462 | 1462 | pass |
 | 05 | SH-03 — Assign drawer | 1.80 | 900 | 900 | pass |
 | 06 | SH-03 — Assigned, ready to close | 1.52 | 1462 | 1462 | pass |

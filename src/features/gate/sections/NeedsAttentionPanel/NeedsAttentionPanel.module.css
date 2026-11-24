@@ -27,9 +27,23 @@
   text-decoration: underline;
 }
 
-/* Narrower than 1440 the three tabs no longer fit on one line. */
+/* Narrower than 1440 the tabs stay on one line: smaller gaps (Tab labels never wrap). */
 @media (max-width: 1439px) {
   .tabs {
-    flex-wrap: wrap;
+    gap: 0 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+}
+
+/* At 1280–1365 the panel is ~360px wide: 16px side padding gives the three tabs room on one line. */
+@media (max-width: 1365px) {
+  .panel.panel {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .tabs {
+    gap: 0 8px;
   }
 }

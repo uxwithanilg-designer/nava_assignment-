@@ -87,9 +87,9 @@ The review state lives in `src/store/reviewStore.tsx` (React Context + `useReduc
 | Screen | Mismatch % | Page height (app / Figma) |
 |---|---|---|
 | 01 Management overview | 1.19 | 1697 / 1697 |
-| 02 Gate dashboard | 1.63 | 2275 / 2275 |
-| 02b Disinfection by hour | 1.64 | 2275 / 2275 |
-| 03 Drilled down to one hour | 1.59 | 2328 / 2328 |
+| 02 Gate dashboard | 1.61 | 2275 / 2275 |
+| 02b Disinfection by hour | 1.62 | 2275 / 2275 |
+| 03 Drilled down to one hour | 1.58 | 2328 / 2328 |
 | 04 Visit needs review | 1.43 | 1462 / 1462 |
 | 05 Assign drawer | 1.80 | 900 / 900 |
 | 06 Assigned, ready to close | 1.52 | 1462 / 1462 |
@@ -111,13 +111,22 @@ The remaining mismatch is text anti-aliasing. Chromium uses subpixel (coloured) 
 - **Evidence viewer colours.** Frame 11 uses a few dark fills that are not NV variables. They are added as `--viewer-*` tokens in `tokens.css`.
 - **Evidence viewer answers.** "No spraying" and "Still unclear" have no selected state in Figma. A 2 px accent ring marks the chosen answer.
 - **SOP list.** Figma only has editor content for "Unit 3 · Inward v2". Selecting another SOP moves the highlight but keeps that editor, so no copy is invented.
+- **Pinned bar widths.** Figma sizes the coverage bars by hand, not strictly by count. The frames checked against Figma use Figma's widths: the 03 KPI bars (132.72 / 9.48 px in a 144 px track that clips) and the gate-card bars on 02 and 03. Every other view sizes bars by count (`CoverageBar` `widths`).
+- **Needs attention on other hours.** For hours other than 07:00 each tab lists that hour's visits. The panel opens the first tab that has items, and an empty tab shows the "Nothing needs you right now" state, so it is never an empty panel.
 - **02b chart bars.** These link to `/gate?chart=disinfection&hour=HH`, which uses the 03 layout. Figma has no frame for this.
 - **Board C-01 baseline.** The baseline (`qa/figma/C-01-components.png`) is exported at about 0.53× (1920×7673 board), so `/components` is compared with it by eye.
 
 ## Layout rules
 
 - **At 1440 px:** pixel-exact (240 px sticky sidebar + 1200 px main column, 32 px content padding).
-- **From 1280 to 1920 px:** the main column is fluid. Two-column rows keep the Figma ratios with grid `fr` units: 692 : 420 on the dashboard and 736 : 376 on visit pages. Below 1440 the filter row and chips wrap, and the visits table scrolls sideways inside its panel.
+- **From 1280 to 1920 px:** the main column is fluid. Two-column rows keep the Figma ratios with grid `fr` units: 692 : 420 on the dashboard and 736 : 376 on visit pages.
+- **Below 1440 px:**
+  - **Filter row:** stays on one line. Spacing tightens and filters drop their small grey label; it stays as the accessible name and hover title.
+  - **Needs-attention tabs:** stay on one line (tab labels never wrap).
+  - **KPI cards:** titles are clamped to 2 lines and the spark bars fit the card.
+  - **Chart footer:** wraps instead of being cut off.
+  - **Module tiles:** keep the same height.
+  - **Visits table:** scrolls sideways inside its panel.
 - **Below 1280 px:** `min-width: 1280px`, so the page scrolls horizontally.
 
 ## Tech and structure

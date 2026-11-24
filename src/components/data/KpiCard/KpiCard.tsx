@@ -30,7 +30,8 @@ export interface KpiCardProps {
   badge?: KpiBadge;
   /** Body/XS line under the value ("42 of 45 judged", "9 already have an owner"). */
   caption?: ReactNode;
-  bar?: CoverageSegments & { total?: number };
+  /** Coverage bar; `widths` pins Figma pixel widths (see CoverageBar). */
+  bar?: CoverageSegments & { total?: number; widths?: readonly number[] };
   spark?: number[];
   /** Index of the highlighted spark bar (03: selected hour). */
   sparkHighlight?: number;
@@ -98,7 +99,7 @@ export function KpiCard({
       </p>
       {caption && <p className={styles.caption}>{caption}</p>}
       {bar && <CoverageBar {...bar} />}
-      {spark && <MiniBars values={spark} highlight={sparkHighlight} color={sparkColor} />}
+      {spark && <MiniBars className={styles.spark} values={spark} highlight={sparkHighlight} color={sparkColor} />}
       {footnote && <p className={styles.footnote}>{footnote}</p>}
       {link &&
         (link.to ? (

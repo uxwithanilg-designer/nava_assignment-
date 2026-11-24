@@ -70,7 +70,13 @@ function GateCard({ gate }: { gate: GateResult }) {
         </span>
       </div>
       {CHECKS.map((c) => (
-        <CheckRow key={c.key} label={c.label} icon={c.icon} stack={gate.checks[c.key]} />
+        <CheckRow
+          key={c.key}
+          label={c.label}
+          icon={c.icon}
+          stack={gate.checks[c.key]}
+          barWidths={gate.barWidths?.[c.key]}
+        />
       ))}
       <p className={styles.ai}>
         <Icon
@@ -95,7 +101,15 @@ function GateCard({ gate }: { gate: GateResult }) {
   );
 }
 
-function CheckRow({ label, icon, stack }: { label: string; icon: IconName; stack: OutcomeStack }) {
+interface CheckRowProps {
+  label: string;
+  icon: IconName;
+  stack: OutcomeStack;
+  /** Figma's pinned segment widths for this bar (02, 03). */
+  barWidths?: readonly number[];
+}
+
+function CheckRow({ label, icon, stack, barWidths }: CheckRowProps) {
   const coverage = stackCoverage(stack);
   const display = getCoverageDisplay(coverage);
   return (
@@ -111,6 +125,7 @@ function CheckRow({ label, icon, stack }: { label: string; icon: IconName; stack
         late={stack.late}
         notObserved={stack.notObserved}
         notJudged={stack.needsReview}
+        widths={barWidths}
       />
       <span className={styles.value}>
         {display.kind === 'percent' && (

@@ -32,6 +32,8 @@ export function Filter({
     <button
       type={type}
       aria-haspopup="listbox"
+      aria-label={`${label}: ${value}`}
+      title={`${label}: ${value}`}
       className={clsx(styles.filter, state === 'Changed' && styles.changed, className)}
       {...rest}
     >
