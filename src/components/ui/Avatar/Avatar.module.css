@@ -1,0 +1,36 @@
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: var(--bg-accent-subtle);
+  color: var(--text-brand);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sizeS {
+  width: 20px;
+  height: 20px;
+  font-size: 9px;
+  line-height: 14px;
+  letter-spacing: 0.018px;
+}
+
+.sizeM {
+  width: 28px;
+  height: 28px;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+}
+
+.sizeL {
+  width: 36px;
+  height: 36px;
+  font-size: 13px;
+  line-height: 18px;
+}

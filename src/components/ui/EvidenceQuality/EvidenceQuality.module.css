@@ -1,0 +1,26 @@
+.quality {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  white-space: nowrap;
+}
+
+.good {
+  color: var(--text-secondary);
+}
+.good .icon {
+  color: var(--text-tertiary);
+}
+
+.partial {
+  color: var(--status-late-text);
+}
+
+.obstructed {
+  color: var(--status-obstructed-text);
+}

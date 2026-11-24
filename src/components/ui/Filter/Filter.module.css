@@ -1,0 +1,55 @@
+.filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+  background: var(--bg-surface);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 19px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color var(--motion-fast) ease;
+}
+
+.filter:hover {
+  border-color: var(--border-strong);
+}
+
+.icon {
+  color: var(--text-tertiary);
+}
+
+.label {
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
+.value {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.chevron {
+  color: var(--text-secondary);
+}
+
+.changed {
+  background: var(--bg-brand-subtle);
+  border-color: var(--text-brand);
+}
+
+.changed:hover {
+  border-color: var(--text-brand);
+}
+
+.changed .icon,
+.changed .label,
+.changed .value,
+.changed .chevron {
+  color: var(--text-brand);
+}

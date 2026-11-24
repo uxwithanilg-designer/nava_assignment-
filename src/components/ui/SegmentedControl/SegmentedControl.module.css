@@ -1,0 +1,9 @@
+.track {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  padding: 3px;
+  border-radius: 10px;
+  background: var(--bg-muted);
+}

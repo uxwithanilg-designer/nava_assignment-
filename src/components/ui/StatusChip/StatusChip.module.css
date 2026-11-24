@@ -1,0 +1,48 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  overflow: hidden;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+}
+
+.observed { background: var(--status-observed-bg); }
+.observed .icon { color: var(--status-observed); }
+.observed .label { color: var(--status-observed-text); }
+
+.missing { background: var(--status-missing-bg); }
+.missing .icon { color: var(--status-missing); }
+.missing .label { color: var(--status-missing-text); }
+
+.late { background: var(--status-late-bg); }
+.late .icon { color: var(--status-late); }
+.late .label { color: var(--status-late-text); }
+
+.review { background: var(--status-review-bg); }
+.review .icon { color: var(--status-review); }
+.review .label { color: var(--status-review-text); }
+
+.obstructed { background: var(--status-obstructed-bg); }
+.obstructed .icon { color: var(--status-obstructed); }
+.obstructed .label { color: var(--status-obstructed-text); }
+
+.notRequired { background: var(--bg-subtle); }
+.notRequired .icon { color: var(--text-tertiary); }
+.notRequired .label { color: var(--text-tertiary); }
+
+.phase2 {
+  border: 1px dashed var(--border-default);
+}
+.phase2 .icon { color: var(--text-tertiary); }
+.phase2 .label { color: var(--text-secondary); }

@@ -1,0 +1,59 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  overflow: hidden;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+}
+
+.noOwner {
+  background: var(--bg-highlight-subtle);
+}
+
+.noOwner .label {
+  color: var(--status-late-text);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--bg-highlight);
+}
+
+.assigned {
+  padding: 3px 8px 3px 3px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+}
+
+.assigned .label {
+  color: var(--text-primary);
+}
+
+.closed {
+  background: var(--bg-subtle);
+}
+
+.closed .label {
+  color: var(--text-secondary);
+}
+
+.none {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-tertiary);
+}

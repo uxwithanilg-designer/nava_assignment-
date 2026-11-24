@@ -1,0 +1,157 @@
+/*
+ * NAVA Vision AI design tokens.
+ * Source: Figma variables "NV/Primitives", "NV/Color" (mode Light), "NV/Size" and effect styles.
+ * Names mirror Figma with "/" replaced by "-". Components must use these, never raw hex values.
+ */
+:root {
+  /* ---------- NV/Primitives ---------- */
+  --navy-950: #0a1a2e;
+  --navy-900: #00194a;
+  --navy-800: #002467;
+  --navy-700: #00328f;
+  --navy-100: #dce6f5;
+  --navy-50: #f0f4fb;
+  --blue-700: #0071c2;
+  --blue-500: #019dfe;
+  --blue-100: #d9efff;
+  --blue-50: #f0f7ff;
+  --cyan-400: #4fcedb;
+  --cyan-100: #ddf5f8;
+  --orange-500: #ff9900;
+  --orange-100: #fff1db;
+  --amber-600: #c26a00;
+  --amber-100: #fff0d6;
+  --amber-800: #8a4b00;
+  --slate-600: #657386;
+  --slate-100: #eceff4;
+  --slate-800: #434f60;
+  --grey-0: #ffffff;
+  --grey-25: #f8fafc;
+  --grey-50: #f1f4f8;
+  --grey-100: #e5e9f0;
+  --grey-200: #ced5df;
+  --grey-400: #8a96a8;
+  --grey-600: #556275;
+  --grey-800: #2a3546;
+  --green-600: #1a8a50;
+  --green-100: #e2f4ea;
+  --green-800: #11693b;
+  --red-600: #d32f3a;
+  --red-100: #fce5e6;
+  --red-800: #a51f29;
+  --violet-600: #6b4fd8;
+  --violet-100: #eee9fd;
+  --violet-800: #4b32a8;
+
+  /* ---------- NV/Color · Light ---------- */
+  --bg-canvas: var(--grey-50);
+  --bg-surface: var(--grey-0);
+  --bg-subtle: var(--grey-25);
+  --bg-muted: var(--grey-100);
+  --bg-inverse: var(--navy-950);
+  --bg-nav: var(--navy-900);
+  --bg-brand: var(--navy-800);
+  --bg-brand-subtle: var(--navy-50);
+  --bg-accent: var(--blue-500);
+  --bg-accent-subtle: var(--blue-50);
+  --bg-highlight: var(--orange-500);
+  --bg-highlight-subtle: var(--orange-100);
+  --bg-nav-hover: #0c2a5e;
+  --bg-nav-active: #163c7a;
+
+  --text-primary: var(--navy-950);
+  --text-secondary: var(--grey-600);
+  --text-tertiary: var(--grey-400);
+  --text-inverse: var(--grey-0);
+  --text-brand: var(--navy-700);
+  --text-link: var(--blue-700);
+  --text-on-brand: var(--grey-0);
+  --text-nav: #b4c3dc;
+  --text-nav-muted: #7389ae;
+
+  --border-subtle: var(--grey-100);
+  --border-default: var(--grey-200);
+  --border-strong: var(--grey-400);
+  --border-focus: var(--blue-500);
+  --border-nav: #1a3769;
+
+  --action-primary: var(--navy-700);
+  --action-accent: var(--blue-500);
+  --action-dark: var(--navy-950);
+
+  --status-observed: var(--green-600);
+  --status-observed-bg: var(--green-100);
+  --status-observed-text: var(--green-800);
+  --status-missing: var(--red-600);
+  --status-missing-bg: var(--red-100);
+  --status-missing-text: var(--red-800);
+  --status-late: var(--amber-600);
+  --status-late-bg: var(--amber-100);
+  --status-late-text: var(--amber-800);
+  --status-review: var(--violet-600);
+  --status-review-bg: var(--violet-100);
+  --status-review-text: var(--violet-800);
+  --status-obstructed: var(--slate-600);
+  --status-obstructed-bg: var(--slate-100);
+  --status-obstructed-text: var(--slate-800);
+  --status-info: var(--blue-500);
+  --status-info-bg: var(--blue-50);
+  --status-info-text: var(--blue-700);
+
+  --chart-observed: #4a9f76;
+  --chart-missing: #d32f3a;
+  --chart-late: #d97a00;
+  --chart-review: #6b4fd8;
+  --chart-track: #edf0f5;
+  --chart-axis: #ced5df;
+  --chart-1: var(--navy-700);
+  --chart-2: var(--blue-500);
+  --chart-3: var(--cyan-400);
+  --chart-4: var(--orange-500);
+
+  /* ---------- NV/Size ---------- */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 999px;
+
+  /* ---------- Effects ---------- */
+  --shadow-xs: 0 1px 2px 0 rgba(10, 26, 46, 0.06);
+  --shadow-card: 0 6px 16px -4px rgba(10, 26, 46, 0.08);
+  --shadow-float: 0 18px 44px -10px rgba(10, 26, 46, 0.18);
+
+  /* Dim layer behind drawer / modal (Figma: navy/950 @ 40%) */
+  --overlay-dim: rgba(10, 26, 46, 0.4);
+
+  /* ---------- Fonts ---------- */
+  --font-display: 'Poppins', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* ---------- Layout ---------- */
+  --sidebar-width: 240px;
+  --topbar-height: 64px;
+  --content-padding: 32px;
+
+  --motion-fast: 150ms;
+  --motion-medium: 200ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+    --motion-medium: 0ms;
+  }
+}

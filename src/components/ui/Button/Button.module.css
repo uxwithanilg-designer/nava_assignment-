@@ -1,0 +1,64 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--motion-fast) ease, border-color var(--motion-fast) ease;
+}
+
+.label {
+  display: block;
+}
+
+.sizeM {
+  padding: 10px 16px;
+}
+
+.sizeS {
+  padding: 6px 12px;
+}
+
+/* Primary: action/primary fill, inverse text, no border (38px tall at size M). */
+.primary {
+  background: var(--action-primary);
+  color: var(--text-inverse);
+}
+
+.primary:hover {
+  background: var(--bg-brand);
+}
+
+/* Secondary: surface fill with border/default (40px tall at size M). */
+.secondary {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+}
+
+.secondary:hover {
+  background: var(--bg-subtle);
+  border-color: var(--border-strong);
+}
+
+/* Ghost: brand text, no fill. */
+.ghost {
+  color: var(--text-brand);
+}
+
+.ghost:hover {
+  background: var(--bg-brand-subtle);
+}
+
+.button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}

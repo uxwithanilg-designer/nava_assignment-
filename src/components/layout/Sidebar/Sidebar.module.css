@@ -1,0 +1,122 @@
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: var(--sidebar-width);
+  height: 100vh;
+  padding: 20px 16px 24px;
+  background: var(--bg-nav);
+  overflow: hidden;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 4px 8px 16px;
+}
+
+.logo {
+  width: 76px;
+  height: 18.376px;
+  flex-shrink: 0;
+}
+
+.divider {
+  width: 1px;
+  height: 18px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.product {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-nav);
+  white-space: nowrap;
+}
+
+.workspace {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-nav-hover);
+  text-align: left;
+}
+
+.workspace:hover {
+  background: var(--bg-nav-active);
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: var(--bg-highlight);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+}
+
+.wsText {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.wsName {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-inverse);
+}
+
+.wsMeta {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-nav);
+}
+
+.spacer {
+  flex: 1 0 0;
+  min-width: 1px;
+}
+
+.gap12 {
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.group {
+  padding: 18px 12px 6px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  color: var(--text-nav-muted);
+  white-space: nowrap;
+}
+
+.fill {
+  flex: 1 0 0;
+  min-height: 1px;
+}

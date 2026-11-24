@@ -1,0 +1,95 @@
+.photo {
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--bg-muted);
+  /* --c: corner arm length, --t: corner thickness, --o: corner offset */
+  --c: 6px;
+  --t: 1px;
+  --o: 3px;
+}
+
+.empty {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+}
+
+.img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+.sizeXS { width: 48px; height: 28px; border-radius: var(--radius-sm); }
+.sizeS { width: 128px; height: 72px; border-radius: var(--radius-md); --c: 10px; --t: 1.5px; --o: 5px; }
+.sizeM { width: 176px; height: 99px; border-radius: 10px; --c: 12px; --t: 1.5px; --o: 6px; }
+.sizeL { width: 320px; height: 180px; border-radius: var(--radius-lg); --c: 18px; --t: 1.5px; --o: 6px; }
+
+/* Viewfinder corners: two bars per corner, drawn with borders on a square. */
+.corner {
+  position: absolute;
+  width: var(--c);
+  height: var(--c);
+  border-color: var(--action-accent);
+  border-style: solid;
+  border-width: 0;
+  pointer-events: none;
+}
+
+.tl { left: var(--o); top: var(--o); border-left-width: var(--t); border-top-width: var(--t); }
+.tr { right: var(--o); top: var(--o); border-right-width: var(--t); border-top-width: var(--t); }
+.bl { left: var(--o); bottom: var(--o); border-left-width: var(--t); border-bottom-width: var(--t); }
+.br { right: var(--o); bottom: var(--o); border-right-width: var(--t); border-bottom-width: var(--t); }
+
+.time {
+  position: absolute;
+  left: 6px;
+  bottom: 6px;
+  display: flex;
+  align-items: center;
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: rgba(10, 26, 46, 0.72);
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--text-inverse);
+  white-space: nowrap;
+}
+
+.sizeM .time,
+.sizeL .time {
+  left: 8px;
+  bottom: 8px;
+}
+
+.camera {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(10, 26, 46, 0.72);
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--text-inverse);
+  white-space: nowrap;
+}
+
+.cameraDot {
+  width: 5px;
+  height: 5px;
+  border-radius: var(--radius-full);
+  background: var(--cyan-400);
+}
