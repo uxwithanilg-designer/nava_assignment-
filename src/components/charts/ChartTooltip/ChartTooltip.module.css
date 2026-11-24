@@ -1,0 +1,83 @@
+.tooltip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 208px;
+  padding: 12px 14px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--bg-inverse);
+  box-shadow: var(--shadow-float);
+  pointer-events: none;
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-inverse);
+  white-space: nowrap;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.swatch {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+.observed { background: var(--chart-observed); }
+.late { background: var(--chart-late); }
+.missing { background: var(--chart-missing); }
+.review { background: var(--chart-review); }
+
+.label {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  /* Figma raw colour #C9D6EC (no token): muted label on the inverse surface. */
+  color: rgb(201 214 236);
+  white-space: nowrap;
+}
+
+.spacer {
+  flex: 1 0 0;
+  min-width: 1px;
+}
+
+.value {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  color: var(--text-inverse);
+  white-space: nowrap;
+}
+
+.divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.footer {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--cyan-400);
+  white-space: nowrap;
+}

@@ -10,8 +10,8 @@ export interface TabProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 
   label: string;
   count?: string | number;
   selected?: boolean;
-  /** Override the count pill style when a Figma instance does. */
-  countTone?: 'attention' | 'neutral';
+  /** Override the count pill style when a Figma instance does ("brand": selected "All visits" tab, 58:448). */
+  countTone?: 'attention' | 'neutral' | 'brand';
 }
 
 export function Tab({ label, count, selected = false, countTone, className, type = 'button', ...rest }: TabProps) {

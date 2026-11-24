@@ -34,6 +34,8 @@ export interface KpiCardProps {
   spark?: number[];
   /** Index of the highlighted spark bar (03: selected hour). */
   sparkHighlight?: number;
+  /** Spark bar colour (a token). Defaults to chart/1; outward cards use chart/2. */
+  sparkColor?: string;
   /** Last Body/XS line ("vs last Monday, same time · by hour", "3 not seen · 3 not judged", hidden reason). */
   footnote?: ReactNode;
   link?: { label: string; to?: string };
@@ -58,6 +60,7 @@ export function KpiCard({
   bar,
   spark,
   sparkHighlight,
+  sparkColor,
   footnote,
   link,
   className,
@@ -77,7 +80,12 @@ export function KpiCard({
         </span>
         <span className={styles.spacer} />
         {badge && (
-          <span className={clsx(styles.badge, styles[`badge-${tone}`])}>
+          <span
+            className={clsx(
+              styles.badge,
+              { neutral: styles.badgeNeutral, hidden: styles.badgeHidden, attention: styles.badgeAttention }[tone],
+            )}
+          >
             {tone === 'hidden' && <Icon name="info" size={12} />}
             {badge.text}
           </span>
@@ -90,7 +98,7 @@ export function KpiCard({
       </p>
       {caption && <p className={styles.caption}>{caption}</p>}
       {bar && <CoverageBar {...bar} />}
-      {spark && <MiniBars values={spark} highlight={sparkHighlight} />}
+      {spark && <MiniBars values={spark} highlight={sparkHighlight} color={sparkColor} />}
       {footnote && <p className={styles.footnote}>{footnote}</p>}
       {link &&
         (link.to ? (

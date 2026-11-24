@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 24px;
+  /* Figma panels (57:433, 57:524, 57:652, 68:2310, 68:2535 …): 20px top/bottom, 24px sides inside a 1px border. */
+  padding: 20px 24px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   background: var(--bg-surface);

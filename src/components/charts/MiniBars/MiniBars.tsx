@@ -11,11 +11,13 @@ export interface MiniBarsProps {
   height?: number;
   /** Index of a highlighted bar (others dim), used when one hour is selected. */
   highlight?: number;
+  /** Bar colour (a token). Defaults to chart/1; outward cards use chart/2. */
+  color?: string;
   className?: string;
   'aria-label'?: string;
 }
 
-export function MiniBars({ values, width = 164, height = 30, highlight, className, ...rest }: MiniBarsProps) {
+export function MiniBars({ values, width = 164, height = 30, highlight, color, className, ...rest }: MiniBarsProps) {
   const max = Math.max(...values, 1);
   return (
     <div
@@ -28,7 +30,7 @@ export function MiniBars({ values, width = 164, height = 30, highlight, classNam
         <span
           key={i}
           className={clsx(styles.bar, highlight !== undefined && i !== highlight && styles.dim)}
-          style={{ height: (v / max) * height }}
+          style={{ height: (v / max) * height, background: color }}
         />
       ))}
     </div>

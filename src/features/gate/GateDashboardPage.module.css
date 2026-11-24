@@ -1,0 +1,7 @@
+/* Row "hour + attention" (57:432): 692 : 420 with a 24px gap; each panel keeps its own height. */
+.hourRow {
+  display: grid;
+  grid-template-columns: 692fr 420fr;
+  gap: 24px;
+  align-items: start;
+}

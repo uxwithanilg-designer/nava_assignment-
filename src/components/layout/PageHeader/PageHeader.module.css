@@ -9,7 +9,9 @@
   flex-direction: column;
   gap: 6px;
   width: 720px;
-  flex-shrink: 0;
+  /* 720px at 1440 (Figma); shrinks below that so the actions stay on screen down to 1280. */
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .titleRow {

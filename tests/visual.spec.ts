@@ -23,10 +23,14 @@ interface Row {
   appHeight: number;
   figmaHeight: number;
 }
-const results: Row[] = [];
+/*
+ * Each screen's result goes to its own JSON file: Playwright restarts the worker after a failed test,
+ * so an in-memory list would lose the earlier screens. The report is rebuilt from these files.
+ */
+const RESULTS = path.join(DIRS.diff, 'results');
 
 test.beforeAll(() => {
-  for (const dir of [DIRS.app, DIRS.diff]) fs.mkdirSync(dir, { recursive: true });
+  for (const dir of [DIRS.app, DIRS.diff, RESULTS]) fs.mkdirSync(dir, { recursive: true });
 });
 
 /** Copy `src` into a canvas of width×height (crop or pad with magenta so size differences count). */
@@ -73,18 +77,23 @@ for (const screen of selected) {
     fs.writeFileSync(path.join(DIRS.diff, file), PNG.sync.write(diff));
 
     const mismatch = (bad / (figma.width * figma.height)) * 100;
-    results.push({
+    const row: Row = {
       number: screen.number,
       name: screen.name,
       mismatch,
       appHeight: appRaw.height,
       figmaHeight: figma.height,
-    });
+    };
+    fs.writeFileSync(path.join(RESULTS, `${screen.number}.json`), JSON.stringify(row));
     expect.soft(mismatch, `${screen.number} mismatch %`).toBeLessThan(TARGET);
   });
 }
 
 test.afterAll(() => {
+  const results: Row[] = selected
+    .map((s) => path.join(RESULTS, `${s.number}.json`))
+    .filter((f) => fs.existsSync(f))
+    .map((f) => JSON.parse(fs.readFileSync(f, 'utf8')) as Row);
   if (!results.length) return;
   const lines = [
     '# Visual QA report',

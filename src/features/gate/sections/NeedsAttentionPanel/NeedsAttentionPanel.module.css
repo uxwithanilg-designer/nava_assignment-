@@ -1,0 +1,35 @@
+.panel {
+  align-self: start;
+}
+
+/* Figma "Tabs" (57:529): 20px apart over a 1px rule. */
+.tabs {
+  display: flex;
+  align-items: flex-start;
+  gap: 0 20px;
+  width: 100%;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Figma "Attention footer" button: ghost S with no left padding (text lines up with the panel content). */
+.seeAll.seeAll {
+  padding: 6px 12px 6px 0;
+}
+
+.seeAll.seeAll:hover {
+  background: none;
+  text-decoration: underline;
+}
+
+/* Narrower than 1440 the three tabs no longer fit on one line. */
+@media (max-width: 1439px) {
+  .tabs {
+    flex-wrap: wrap;
+  }
+}

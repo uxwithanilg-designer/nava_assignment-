@@ -12,12 +12,15 @@ export interface TopBarProps {
   breadcrumb: string[];
   camerasLive?: string;
   cameraNote?: string;
+  /** Draw the last crumb like the others (Body/S, secondary), as on 01 "Sakku Group / Overview". */
+  plainCurrent?: boolean;
 }
 
 export function TopBar({
   breadcrumb,
   camerasLive = topBarStatus.camerasLive,
   cameraNote = topBarStatus.cameraNote,
+  plainCurrent = false,
 }: TopBarProps) {
   return (
     <header className={styles.topBar}>
@@ -27,7 +30,10 @@ export function TopBar({
           return (
             <Fragment key={`${crumb}-${i}`}>
               {i > 0 && <Icon name="chevron-right" size={14} color="var(--text-tertiary)" />}
-              <span className={last ? styles.crumbCurrent : styles.crumb} aria-current={last ? 'page' : undefined}>
+              <span
+                className={last && !plainCurrent ? styles.crumbCurrent : styles.crumb}
+                aria-current={last ? 'page' : undefined}
+              >
                 {crumb}
               </span>
             </Fragment>

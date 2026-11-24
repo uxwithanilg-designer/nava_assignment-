@@ -4,7 +4,7 @@ import styles from './Panel.module.css';
 
 /**
  * Panel: white card with a header (Title/Panel + Body/S description) and an optional right slot.
- * Figma panels: surface fill, 1px border/subtle, radius 16, 24px padding.
+ * Figma panels: surface fill, 1px border/subtle, radius 16, padding 20px top/bottom and 24px sides.
  */
 export interface PanelProps {
   title?: ReactNode;

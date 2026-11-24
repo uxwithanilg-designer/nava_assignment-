@@ -13,6 +13,7 @@
   background: var(--chart-1);
 }
 
+/* Figma 81:5362 (03): unselected spark bars at 28% opacity. */
 .dim {
-  opacity: 0.25;
+  opacity: 0.28;
 }

@@ -1,0 +1,127 @@
+/* The table runs edge to edge: the panel has no padding, its header and footer carry their own. */
+.panel.panel {
+  padding: 0;
+  overflow: hidden;
+}
+
+.header.header {
+  padding: 20px 24px 0;
+}
+
+/* Figma "Quick filters" (58:447): 14px under the header, 24px between tabs. */
+.tabs {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 14px;
+  padding: 0 24px;
+}
+
+/* 03: "Active filters" (70:4709). */
+.activeFilters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 0 24px;
+}
+
+.filteredBy {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--bg-brand-subtle);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-brand);
+  white-space: nowrap;
+  transition: background-color var(--motion-fast) ease;
+}
+
+.chip:hover {
+  background: var(--navy-100);
+}
+
+/* Figma footer (58:931): 14px / 24px padding, 8px gap. */
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+}
+
+.showing {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.spacer {
+  flex: 1 0 0;
+  min-width: 1px;
+  height: 1px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-secondary);
+}
+
+.pageButton {
+  cursor: pointer;
+  transition: background-color var(--motion-fast) ease;
+}
+
+.pageButton:hover {
+  background: var(--bg-subtle);
+}
+
+.current,
+.current:hover {
+  background: var(--bg-brand-subtle);
+  color: var(--text-brand);
+}
+
+/* Prev / next: Figma "Icon button" Outline at 32×32 with an 18px chevron. */
+.pageArrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+}

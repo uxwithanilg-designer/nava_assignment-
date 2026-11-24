@@ -1,0 +1,19 @@
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+}
+
+/* One row at 1440 (Figma); narrower screens wrap instead of running off the page. */
+@media (max-width: 1439px) {
+  .bar {
+    flex-wrap: wrap;
+  }
+}
+
+.spacer {
+  flex: 1 0 0;
+  min-width: 1px;
+  height: 1px;
+}

@@ -50,6 +50,11 @@
   color: var(--text-secondary);
 }
 
+.brand {
+  background: var(--bg-brand-subtle);
+  color: var(--text-brand);
+}
+
 .underline {
   display: block;
   width: 100%;

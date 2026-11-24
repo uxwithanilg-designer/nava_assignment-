@@ -1,0 +1,19 @@
+/* Figma KPI strip: groups of 2 / 3 / 1 cards (368 · 558 · 178 at 1440), 16px apart. */
+.strip {
+  display: grid;
+  grid-template-columns: 368fr 558fr 178fr;
+  gap: 16px;
+}
+
+.notSeen,
+.notJudged {
+  font-weight: 600;
+}
+
+.notSeen {
+  color: var(--status-missing);
+}
+
+.notJudged {
+  color: var(--status-review);
+}

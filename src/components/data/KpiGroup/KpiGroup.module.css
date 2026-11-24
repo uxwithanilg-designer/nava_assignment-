@@ -17,14 +17,15 @@
   font-size: 11px;
   line-height: 14px;
   letter-spacing: 0.022px;
-  color: var(--text-secondary);
+  /* Figma 81:5221 / 81:5509: Label/S in text/tertiary, rule in border/default. */
+  color: var(--text-tertiary);
   white-space: nowrap;
 }
 
 .rule {
   flex: 1 0 0;
   height: 1px;
-  background: var(--border-subtle);
+  background: var(--border-default);
 }
 
 .cards {

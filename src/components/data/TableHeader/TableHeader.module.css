@@ -1,0 +1,36 @@
+.head {
+  background: var(--bg-subtle);
+}
+
+.th {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.th:first-child {
+  padding-left: 20px;
+}
+
+.th:last-child {
+  padding-right: 18px;
+}
+
+/* Every header cell is 20px tall (Figma "H · Action" placeholder), so the header row is 41px. */
+.cell {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.end .cell {
+  justify-content: flex-end;
+}

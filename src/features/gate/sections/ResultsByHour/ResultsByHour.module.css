@@ -1,0 +1,100 @@
+.legendRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.spacer {
+  flex: 1 0 0;
+  min-width: 1px;
+  height: 1px;
+}
+
+.unit {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+/* 03: "Selected hour pill" (70:4054) — links back to the whole day. */
+.hourPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--bg-brand-subtle);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-brand);
+  white-space: nowrap;
+  transition: background-color var(--motion-fast) ease;
+}
+
+.hourPill:hover {
+  background: var(--navy-100);
+}
+
+.outwardNote {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+/* Figma "Chart footer" (57:516): top rule, 14px above the text. */
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footerText {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.strong {
+  font-weight: 600;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background: var(--chart-review);
+}
+
+.violetNote {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}

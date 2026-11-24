@@ -1,0 +1,234 @@
+/* Panel header 57:653: legend vertically centred on the title block. */
+.header {
+  align-items: center;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.gates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Figma "Gate · Main gate" (57:671) */
+.gate {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+  min-width: 0;
+  padding: 18px 20px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--bg-subtle);
+}
+
+.gateHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--bg-surface);
+}
+
+.gateText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  white-space: nowrap;
+}
+
+.gateName {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: -0.015px;
+  color: var(--text-primary);
+}
+
+.gateMeta {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-secondary);
+}
+
+.spacer {
+  flex: 1 0 0;
+  min-width: 1px;
+  height: 1px;
+}
+
+.health {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  white-space: nowrap;
+}
+
+.healthDot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+}
+
+.healthPartial {
+  background: var(--bg-highlight-subtle);
+  color: var(--status-late-text);
+}
+
+.healthPartial .healthDot {
+  background: var(--status-late);
+}
+
+.healthClear {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.healthClear .healthDot {
+  background: var(--cyan-400);
+}
+
+/* One check row (57:683): 160px label · bar · 132px value, 2px vertical padding. */
+.check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 2px 0;
+}
+
+.checkLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 160px;
+  flex-shrink: 0;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.bar {
+  flex: 1 0 0;
+  min-width: 1px;
+}
+
+.value {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 6px;
+  width: 132px;
+  flex-shrink: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.number {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: -0.11px;
+  color: var(--text-primary);
+}
+
+.of {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-tertiary);
+}
+
+.hidden {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  color: var(--status-review-text);
+}
+
+.ai {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aiText {
+  flex: 1 0 0;
+  min-width: 1px;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-secondary);
+}
+
+.strong {
+  font-weight: 600;
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.noteWarning {
+  background: var(--bg-highlight-subtle);
+}
+
+.noteWarning .noteText {
+  color: var(--status-late-text);
+}
+
+.noteClear {
+  background: var(--bg-surface);
+}
+
+.noteClear .noteText {
+  color: var(--text-secondary);
+}
+
+.noteText {
+  flex: 1 0 0;
+  min-width: 1px;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+}

@@ -1,0 +1,175 @@
+/* Figma "Chart body" (57:459): 64px side labels + the chart frame. */
+.body {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  width: 64px;
+  height: 329px;
+  flex-shrink: 0;
+}
+
+.sideLabel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.chart {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.grid {
+  position: absolute;
+  right: 0;
+  height: 1px;
+  background: var(--chart-track);
+}
+
+.yLabel {
+  position: absolute;
+  left: 0;
+  width: 18px;
+  text-align: right;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.columns {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+}
+
+.column {
+  position: relative;
+  height: 100%;
+}
+
+/* 03: selected hour column (accent-subtle, inset 3px each side, radius 10). */
+.selectedBg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3px;
+  right: 3px;
+  border-radius: 10px;
+  background: var(--bg-accent-subtle);
+}
+
+.stackIn,
+.stackOut {
+  position: absolute;
+  left: 50%;
+  width: 24px;
+  margin-left: -12px;
+  display: flex;
+  gap: 2px;
+}
+
+.stackIn {
+  flex-direction: column-reverse;
+}
+
+.stackOut {
+  flex-direction: column;
+}
+
+.seg {
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+}
+
+/* Rounded outer end only: top of the inward stack, bottom of the outward stack. */
+.stackIn .seg:last-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.stackOut .seg:last-child {
+  border-radius: 0 0 4px 4px;
+}
+
+.observed { background: var(--chart-observed); }
+.late { background: var(--chart-late); }
+.missing { background: var(--chart-missing); }
+.review { background: var(--chart-review); }
+
+/* 03: hours other than the selected one at 30% opacity. */
+.dim .seg {
+  opacity: 0.3;
+}
+
+.hourLabel {
+  position: absolute;
+  top: 157.5px;
+  left: 50%;
+  width: 33px;
+  margin-left: -16.5px;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.hourSelected {
+  color: var(--text-brand);
+}
+
+/* Hit area: the whole hour column (Figma hotspot 76:5000 is the full column). */
+.hit {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.zone {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: block;
+}
+
+/* 02b: grey box in place of the outward bars. */
+.outwardNote {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--bg-subtle);
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 5;
+}

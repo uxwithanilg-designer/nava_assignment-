@@ -36,6 +36,14 @@ export interface EvidencePhotoProps {
   style?: CSSProperties;
 }
 
+/* CSS modules use localsConvention "camelCaseOnly", so `.sizeXS` is exported as `sizeXs`. */
+const SIZE_CLASS: Record<EvidencePhotoSize, string | undefined> = {
+  XS: styles.sizeXs,
+  S: styles.sizeS,
+  M: styles.sizeM,
+  L: styles.sizeL,
+};
+
 export function EvidencePhoto({
   size = 'XS',
   image,
@@ -51,7 +59,7 @@ export function EvidencePhoto({
   const position = crop?.position ?? '50% 50%';
   return (
     <span
-      className={clsx(styles.photo, styles[`size${size}`], !image && styles.empty, className)}
+      className={clsx(styles.photo, SIZE_CLASS[size], !image && styles.empty, className)}
       style={{ width, height, ...style }}
     >
       {image && (

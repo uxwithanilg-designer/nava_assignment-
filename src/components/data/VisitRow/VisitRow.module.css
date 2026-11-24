@@ -1,0 +1,97 @@
+.row {
+  background: var(--bg-surface);
+  transition: background-color var(--motion-fast) ease;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+/* State: Hover */
+.hover {
+  background: var(--bg-subtle);
+}
+
+.td {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.td:first-child {
+  padding-left: 20px;
+}
+
+/* Figma: the 68px action column ends 2px inside the 20px side padding (columns sum to 1096 in a 1094 box). */
+.actionTd {
+  padding-right: 18px;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.gap6 {
+  gap: 6px;
+}
+
+.gap8 {
+  gap: 8px;
+}
+
+.id {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.text {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.stepTime {
+  display: block;
+  width: 38px;
+  height: 19px;
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  white-space: nowrap;
+}
+
+.inspectionTime {
+  color: var(--text-secondary);
+}
+
+.disinfectionTime {
+  color: var(--text-tertiary);
+}
+
+.actionCell {
+  justify-content: flex-end;
+}
+
+.action.action {
+  padding: 6px 12px;
+}
+
+.view.view {
+  color: var(--text-secondary);
+}
+
+.view.view:hover {
+  background: var(--bg-muted);
+}
