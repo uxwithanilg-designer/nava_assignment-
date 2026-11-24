@@ -1,0 +1,26 @@
+section.panel {
+  padding: 20px 24px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* "Open review list" (Button Ghost, no left inset): Label/M brand. */
+.footerLink {
+  align-self: flex-start;
+  padding: 6px 12px 6px 0;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-brand);
+  white-space: nowrap;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+}

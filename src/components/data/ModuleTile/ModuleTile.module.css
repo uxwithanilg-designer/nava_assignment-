@@ -1,0 +1,180 @@
+/* Figma "Module tile" (81:5674): surface, 1px border/subtle, radius 16, padding 18/20, gap 14. */
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+  padding: 18px 20px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  background: var(--bg-surface);
+  overflow: hidden;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: var(--radius-lg);
+  background: var(--bg-brand-subtle);
+  color: var(--text-brand);
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1 0 0;
+  min-width: 1px;
+}
+
+/* NV/Heading/3 */
+.name {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: -0.015px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* NV/Body/XS */
+.description {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-secondary);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  background: var(--bg-subtle);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan-400);
+}
+
+.valueRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  width: 100%;
+  white-space: nowrap;
+}
+
+/* NV/Number/KPI */
+.value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 40px;
+  letter-spacing: -0.34px;
+  color: var(--text-primary);
+}
+
+/* NV/Body/S */
+.unit {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-secondary);
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 6px;
+  width: 100%;
+}
+
+/* NV/Label/S pills */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  white-space: nowrap;
+}
+
+.reviewPill {
+  background: var(--status-review-bg);
+  color: var(--status-review-text);
+}
+
+.reviewPill svg {
+  color: var(--status-review);
+}
+
+.noOwnerPill {
+  background: var(--bg-highlight);
+  color: var(--text-primary);
+}
+
+.rule {
+  width: 100%;
+  height: 1px;
+  flex-shrink: 0;
+  background: var(--border-subtle);
+}
+
+/* Open link: NV/Label/M brand text, spacer, chevron. */
+.link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-brand);
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.link:hover .linkLabel {
+  text-decoration: underline;
+}
+
+.spacer {
+  flex: 1 0 0;
+  min-width: 1px;
+}

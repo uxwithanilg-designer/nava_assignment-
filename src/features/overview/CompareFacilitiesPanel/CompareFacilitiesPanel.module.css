@@ -1,0 +1,196 @@
+/*
+ * Panel 72:4638: 20px top padding, header inset 24px, 14px between header, column header and rows,
+ * rows run edge to edge (20px cell inset) with a 1px border/subtle under each.
+ */
+section.panel {
+  position: relative;
+  padding: 20px 0 0;
+  overflow: hidden;
+}
+
+header.header {
+  padding: 0 24px;
+}
+
+.table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/*
+ * Figma column widths in a 1134px row: 190 (+20 inset) · 110 · 160 · 160 · 160 · 140 · 110 · 66 (Open, +18 inset).
+ * Kept as shares of the row so the table stays fluid between 1280 and 1920 and is exact at 1440.
+ */
+.colFacility { width: calc(100% * 210 / 1134); }
+.colVisits { width: calc(100% * 110 / 1134); }
+.colCoverage { width: calc(100% * 160 / 1134); }
+.colReview { width: calc(100% * 140 / 1134); }
+.colCameras { width: calc(100% * 110 / 1134); }
+
+/* Column header row: bg/subtle, borders top and bottom, Label/S tertiary, 40px + borders. */
+.table th {
+  padding: 13px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-subtle);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* Body rows: 14px gap above each row (panel auto-layout gap) + 14px padding, 14px bottom padding. */
+.table td {
+  padding: 28px 0 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  vertical-align: middle;
+  transition: background-color var(--motion-fast) ease;
+}
+
+.row:hover td {
+  background: var(--bg-subtle);
+}
+
+.linked {
+  cursor: pointer;
+}
+
+.table .first {
+  padding-left: 20px;
+}
+
+.table .last {
+  padding-right: 18px;
+  text-align: right;
+}
+
+.facility {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+/* NV/Body/M Medium */
+.unitName {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.014px;
+  color: var(--text-primary);
+}
+
+/* NV/Body/XS tertiary */
+.gates {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-tertiary);
+}
+
+/* NV/Body/S */
+.visits {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.coverage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 64×6 fraction bar with 1px gaps (radius 3 comes from the height). */
+.coverage .bar {
+  width: 64px;
+  flex-shrink: 0;
+  gap: 1px;
+}
+
+/* NV/Label/M */
+.percent {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* NV/Label/S violet: the base is not reliable, so no % is shown. */
+.hidden {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  color: var(--status-review-text);
+  white-space: nowrap;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+/* NV/Body/S Medium */
+.open {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-primary);
+}
+
+/* NV/Body/XS */
+.note {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-secondary);
+}
+
+.attention {
+  color: var(--status-late-text);
+}
+
+.cameras {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-secondary);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--cyan-400);
+}
+
+.partial {
+  color: var(--status-late-text);
+}
+
+.partial .dot {
+  background: var(--status-late);
+}

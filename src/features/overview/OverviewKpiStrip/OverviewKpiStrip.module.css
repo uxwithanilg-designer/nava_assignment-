@@ -1,0 +1,34 @@
+/*
+ * KPI strip 81:5506: groups of 2 · 3 · 1 cards, 16px between groups, 12px between cards.
+ * flex-grow = card count and flex-basis = the group's inner gaps, so every card gets the same width
+ * (178px at 1440) and the groups stay proportional when the main column is wider.
+ */
+.strip {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+}
+
+.span2 { flex: 2 1 12px; }
+.span3 { flex: 3 1 24px; }
+.span1 { flex: 1 1 0; }
+
+/* Figma group label: Label/S text/tertiary; rule border/default. */
+.group > :first-child > :first-child {
+  color: var(--text-tertiary);
+}
+
+.group > :first-child > :last-child {
+  background: var(--border-default);
+}
+
+/* Breakdown numbers: Inter Semi Bold in the status colour. */
+.late,
+.missing,
+.review {
+  font-weight: 600;
+}
+
+.late { color: var(--chart-late); }
+.missing { color: var(--status-missing); }
+.review { color: var(--status-review); }

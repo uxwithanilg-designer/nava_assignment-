@@ -1,0 +1,96 @@
+/* Needs-attention item: padding 12, gap 14, radius 12; Hover = bg/subtle + chevron. */
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--motion-fast) ease;
+}
+
+.item:hover,
+.item:focus-visible {
+  background: var(--bg-subtle);
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 0 0;
+  min-width: 1px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  white-space: nowrap;
+}
+
+/* NV/Mono/S */
+.id {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-primary);
+}
+
+/* NV/Body/XS tertiary */
+.meta {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-tertiary);
+}
+
+/* The meta text gives way first when the list is narrow (1280). */
+.metaText {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spacer {
+  flex: 1 0 0;
+  min-width: 1px;
+}
+
+/* NV/Body/S Medium */
+.title {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-primary);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+/* Hover chevron at the end of the tags row (Figma State=Hover), reaching into the item padding. */
+.chevron {
+  position: absolute;
+  right: -8px;
+  bottom: 2px;
+  color: var(--text-secondary);
+  visibility: hidden;
+}
+
+.item:hover .chevron,
+.item:focus-visible .chevron {
+  visibility: visible;
+}

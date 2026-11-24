@@ -1,0 +1,1 @@
+export { OverviewKpiStrip } from './OverviewKpiStrip';

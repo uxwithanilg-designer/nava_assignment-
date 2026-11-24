@@ -1,0 +1,19 @@
+/* Page header 72:4403: 61px tall, the Export button is centred (no top offset on 01). */
+.header > :last-child {
+  padding-top: 0;
+}
+
+/* Filters 72:4420 */
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Row · trend + waiting (72:4773): 692 : 420 with a 24px gap; the list keeps at least 400px at 1280. */
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 692fr) minmax(400px, 420fr);
+  gap: 24px;
+  align-items: stretch;
+}

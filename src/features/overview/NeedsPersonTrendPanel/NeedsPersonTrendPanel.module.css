@@ -1,0 +1,24 @@
+/* Figma panel: padding 20 / 24, 16px gap, content top-aligned (the row stretches it to 456px). */
+section.panel {
+  padding: 20px 24px;
+}
+
+/* Insight 72:4814: brand-subtle box, radius 12, padding 12 / 14, Body/S brand text. */
+.insight {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-brand-subtle);
+  color: var(--text-brand);
+}
+
+.insightText {
+  flex: 1 0 0;
+  min-width: 1px;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+}

@@ -1,0 +1,1 @@
+export { CompareFacilitiesPanel } from './CompareFacilitiesPanel';

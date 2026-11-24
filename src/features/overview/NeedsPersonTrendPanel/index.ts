@@ -1,0 +1,1 @@
+export { NeedsPersonTrendPanel } from './NeedsPersonTrendPanel';

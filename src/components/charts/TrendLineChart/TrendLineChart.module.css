@@ -1,0 +1,94 @@
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* Legend: 14×3 swatch (radius 2), Body/XS secondary, 16px between items. */
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.legendSwatch {
+  width: 14px;
+  height: 3px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Figma draws the chart frame 2px wider than the panel content box (644 vs 642). */
+.plot {
+  position: relative;
+  width: calc(100% + 2px);
+}
+
+.svg {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+}
+
+.grid {
+  fill: var(--chart-track);
+}
+
+.axis {
+  fill: var(--chart-axis);
+}
+
+.endDot {
+  stroke: var(--bg-surface);
+  stroke-width: 2px;
+}
+
+/* NV/Body/XS tertiary; the 17px line box is centred on the tick (top = tick − 8.5). */
+.yLabel,
+.xLabel {
+  position: absolute;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.yLabel {
+  transform: translateY(-8.5px);
+  text-align: right;
+}
+
+.xLabel {
+  transform: translateX(-50%);
+}
+
+.xLabelCurrent {
+  color: var(--text-primary);
+}
+
+/* NV/Label/S; the 14px line box is centred on the end point. */
+.endLabel {
+  position: absolute;
+  transform: translateY(-7px);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  white-space: nowrap;
+}
