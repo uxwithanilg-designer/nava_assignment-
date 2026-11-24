@@ -1,0 +1,160 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  background: var(--bg-surface);
+  overflow: hidden;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+}
+
+.spacer {
+  flex: 1 0 0;
+  min-width: 1px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  white-space: nowrap;
+}
+
+.badge-neutral {
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+}
+
+.badge-hidden {
+  background: var(--status-review-bg);
+  color: var(--status-review-text);
+}
+
+.badge-attention {
+  background: var(--bg-highlight);
+  color: var(--text-primary);
+}
+
+.label {
+  width: 100%;
+  height: 38px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-secondary);
+}
+
+.valueRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 6px;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 40px;
+  letter-spacing: -0.34px;
+  color: var(--text-primary);
+}
+
+.unit {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-secondary);
+}
+
+.caption,
+.footnote {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-secondary);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px 6px 0;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-brand);
+  white-space: nowrap;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Type: Count */
+.count .iconBox {
+  background: var(--bg-brand-subtle);
+  color: var(--text-brand);
+}
+.count .footnote {
+  color: var(--text-tertiary);
+}
+
+/* Type: Coverage */
+.coverage .iconBox {
+  background: var(--status-observed-bg);
+  color: var(--status-observed);
+}
+
+/* Type: Coverage hidden */
+.hidden .iconBox {
+  background: var(--status-review-bg);
+  color: var(--status-review);
+}
+.hidden .footnote {
+  color: var(--status-review-text);
+}
+
+/* Type: Review (orange attention card) */
+.review {
+  background: var(--bg-highlight-subtle);
+  border-color: var(--bg-highlight);
+}
+.review .iconBox {
+  background: var(--bg-highlight);
+  color: var(--text-primary);
+}

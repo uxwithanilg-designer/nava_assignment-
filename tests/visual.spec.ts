@@ -10,7 +10,7 @@ import { SCREENS } from '../src/app/screens';
  * Writes app screenshots to qa/app, diff images to qa/diff and a summary to qa/diff/report.md.
  * Filter with SCREENS=02,02b (comma-separated screen numbers).
  */
-const ROOT = path.resolve(__dirname, '..');
+const ROOT = process.cwd();
 const DIRS = { figma: path.join(ROOT, 'qa/figma'), app: path.join(ROOT, 'qa/app'), diff: path.join(ROOT, 'qa/diff') };
 const TARGET = 2; // % mismatched pixels
 const only = process.env.SCREENS?.split(',').map((s) => s.trim());

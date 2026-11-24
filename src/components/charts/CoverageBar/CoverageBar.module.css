@@ -1,0 +1,18 @@
+.track {
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+  width: 100%;
+  overflow: hidden;
+  background: var(--chart-track);
+}
+
+.track > span {
+  flex: 0 1 0;
+  min-width: 0;
+}
+
+.observed { background: var(--chart-observed); }
+.late { background: var(--chart-late); }
+.missing { background: var(--chart-missing); }
+.review { background: var(--chart-review); }

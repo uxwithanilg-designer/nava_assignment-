@@ -1,0 +1,38 @@
+.group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 14px;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.022px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.rule {
+  flex: 1 0 0;
+  height: 1px;
+  background: var(--border-subtle);
+}
+
+.cards {
+  display: flex;
+  align-items: stretch;
+  flex: 1 1 auto;
+}
+
+.cards > * {
+  flex: 1 1 0;
+}
