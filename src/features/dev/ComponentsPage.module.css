@@ -1,0 +1,192 @@
+/* Board "C-01 — Components" (48:83): navy header, then one section per component. */
+.page {
+  min-height: 100vh;
+  background: var(--bg-surface);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 56px 96px;
+  background: var(--bg-brand);
+}
+
+.headerTop {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  width: 100px;
+  height: 24.178px;
+}
+
+.spacer {
+  flex: 1 0 0;
+}
+
+.tag {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--cyan-400);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 46px;
+  letter-spacing: -0.36px;
+  color: var(--text-inverse);
+}
+
+.description {
+  max-width: 1000px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.016px;
+  color: var(--text-nav);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  padding: 64px 96px 96px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.sectionHead {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+  letter-spacing: -0.066px;
+  color: var(--text-primary);
+}
+
+.sectionDescription {
+  max-width: 900px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.014px;
+  color: var(--text-secondary);
+}
+
+/* Figma's dashed component-set frame (25px inside, 20px between variants). */
+.variants,
+.variantsColumn {
+  display: flex;
+  max-width: 100%;
+  overflow-x: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  border: 1px dashed var(--violet-600);
+  border-radius: 6px;
+  background: var(--bg-subtle);
+}
+
+.variantsColumn {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.navItems {
+  display: flex;
+  gap: 20px;
+  width: 486px;
+  padding: 24px;
+  border-radius: 6px;
+  background: var(--bg-nav);
+}
+
+.sidebarFrame {
+  height: 1080px;
+}
+
+/* The sidebar is sticky to the viewport in the app; in the gallery it sits in a fixed frame. */
+.sidebarFrame > nav {
+  position: static;
+  height: 100%;
+}
+
+.topBarFrame {
+  width: 1200px;
+}
+
+.kpi {
+  width: 200px;
+}
+
+.moduleTile {
+  width: 280px;
+}
+
+.photos {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.attentionItem {
+  width: 400px;
+}
+
+.table {
+  width: 1136px;
+  max-width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  background: var(--bg-surface);
+}
+
+.textArea {
+  width: 412px;
+}
+
+.statesRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.quiet {
+  width: 400px;
+}
+
+.loading {
+  width: 200px;
+}
+
+.radio {
+  width: 440px;
+}
+
+.person {
+  width: 412px;
+}
+
+.wide {
+  width: 720px;
+}
